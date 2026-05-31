@@ -21,7 +21,7 @@ export function renderLanding(container: HTMLElement) {
           font-size:14px; font-weight:600; font-family:inherit;
           transition:background 0.15s;
         " onmouseover="this.style.background='#2d5491'" onmouseout="this.style.background='#1e3a5f'">
-          دخول الموظفين
+          تسجيل دخول
         </a>
       </nav>
 
@@ -62,7 +62,7 @@ export function renderLanding(container: HTMLElement) {
             transition:all 0.15s;
           " onmouseover="this.style.background='#2d5491';this.style.boxShadow='0 6px 20px rgba(30,58,95,0.45)'"
              onmouseout="this.style.background='#1e3a5f';this.style.boxShadow='0 4px 14px rgba(30,58,95,0.35)'">
-            دخول الموظفين ←
+            تسجيل دخول ←
           </a>
         </div>
 
@@ -132,7 +132,9 @@ export function renderLanding(container: HTMLElement) {
             <div style="background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:36px 28px;transition:all 0.2s;cursor:default;"
                  onmouseover="this.style.boxShadow='0 8px 30px rgba(30,58,95,0.12)';this.style.borderColor='#c7d9f8'"
                  onmouseout="this.style.boxShadow='none';this.style.borderColor='#e2e8f0'">
-              <div style="width:52px;height:52px;border-radius:14px;background:#eef4ff;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;">🔍</div>
+              <div style="width:52px;height:52px;border-radius:14px;background:#eef4ff;display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#1e3a5f;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              </div>
               <h3 style="font-size:18px;font-weight:700;color:#1e3a5f;margin:0 0 10px;">استعلام بالعربية الطبيعية</h3>
               <p style="font-size:14px;color:#64748b;line-height:1.8;margin:0;">اكتب سؤالك بأسلوبك الطبيعي دون الحاجة لمعرفة لغات برمجية أو SQL.</p>
             </div>
@@ -140,7 +142,9 @@ export function renderLanding(container: HTMLElement) {
             <div style="background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:36px 28px;transition:all 0.2s;cursor:default;"
                  onmouseover="this.style.boxShadow='0 8px 30px rgba(30,58,95,0.12)';this.style.borderColor='#c7d9f8'"
                  onmouseout="this.style.boxShadow='none';this.style.borderColor='#e2e8f0'">
-              <div style="width:52px;height:52px;border-radius:14px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;">📊</div>
+              <div style="width:52px;height:52px;border-radius:14px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#16a34a;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
               <h3 style="font-size:18px;font-weight:700;color:#1e3a5f;margin:0 0 10px;">نتائج فورية بالرسوم والجداول</h3>
               <p style="font-size:14px;color:#64748b;line-height:1.8;margin:0;">احصل على إجابات مدعومة بمخططات بيانية وجداول تفصيلية قابلة للتصدير.</p>
             </div>
@@ -148,7 +152,9 @@ export function renderLanding(container: HTMLElement) {
             <div style="background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:36px 28px;transition:all 0.2s;cursor:default;"
                  onmouseover="this.style.boxShadow='0 8px 30px rgba(30,58,95,0.12)';this.style.borderColor='#c7d9f8'"
                  onmouseout="this.style.boxShadow='none';this.style.borderColor='#e2e8f0'">
-              <div style="width:52px;height:52px;border-radius:14px;background:#fff7ed;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;">🔒</div>
+              <div style="width:52px;height:52px;border-radius:14px;background:#fff7ed;display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#ea580c;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
               <h3 style="font-size:18px;font-weight:700;color:#1e3a5f;margin:0 0 10px;">أمان وصلاحيات حسب الدور</h3>
               <p style="font-size:14px;color:#64748b;line-height:1.8;margin:0;">نظام صلاحيات متعدد المستويات يضمن وصول كل مستخدم فقط للبيانات المخصصة له.</p>
             </div>
