@@ -1,4 +1,5 @@
 import { showModal } from '../components/modal';
+import { state } from '../state';
 
 const questions = [
   'كم عدد المعاملات المكتملة هذا الشهر؟',
@@ -72,7 +73,9 @@ export function renderHistory(container: HTMLElement) {
   const dateSelect = document.getElementById('hist-date-filter') as HTMLSelectElement;
 
   function getFilteredSorted() {
-    let filtered = [...allHistory];
+    let filtered = state.user?.role === 'محلل بيانات'
+      ? allHistory.filter(h => h.user === state.user?.name)
+      : [...allHistory];
     
     if (searchTerm) {
       const lower = searchTerm.toLowerCase();
