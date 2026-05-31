@@ -4,6 +4,13 @@ export function renderLogin(container: HTMLElement) {
   container.innerHTML = `
     <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--color-background); width: 100%;">
       <div class="card" style="width: 100%; max-width: 400px; text-align: center;">
+        <div style="text-align: right; margin-bottom: 8px;">
+          <a href="#" style="display: inline-flex; align-items: center; gap: 6px; color: var(--color-muted); text-decoration: none; font-size: 13px; transition: color 0.15s;"
+             onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='var(--color-muted)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            رجوع للرئيسية
+          </a>
+        </div>
         <img src="/logo.png" alt="دليل" style="width: 80px; margin-bottom: 16px;" onerror="this.style.display='none'">
         <h1 style="margin-bottom: 8px;">دليل</h1>
         <p style="margin-bottom: 32px;">مساعد الاستعلام الذكي للبيانات المؤسسية</p>

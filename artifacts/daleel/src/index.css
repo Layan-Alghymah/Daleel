@@ -122,8 +122,20 @@ p { color: var(--color-muted); }
 .sidebar-logo h2 { margin: 0; color: var(--color-primary); }
 .sidebar-nav {
   flex: 1;
-  padding: 16px 0;
+  padding: 8px 0;
   overflow-y: auto;
+  overflow-x: hidden;
+}
+.sidebar-nav::-webkit-scrollbar { width: 4px; }
+.sidebar-nav::-webkit-scrollbar-track { background: transparent; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+.nav-group-label {
+  padding: 14px 24px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
 }
 .nav-item {
   display: flex;

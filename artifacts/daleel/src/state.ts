@@ -11,7 +11,7 @@ export function login(user: { name: string; email: string; role: string }) {
 export function logout() {
   state.user = null;
   localStorage.removeItem('daleel_user');
-  window.location.hash = '#login';
+  window.location.hash = '#';
 }
 
 export function initAuth() {
