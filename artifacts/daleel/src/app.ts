@@ -43,6 +43,21 @@ export function initApp() {
 
 import { renderSidebar } from './components/sidebar';
 
+function setupMobileMenu() {
+  const hamburger = document.querySelector('.hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.querySelector('.sidebar-overlay');
+  
+  hamburger?.addEventListener('click', () => {
+    sidebar?.classList.toggle('open');
+    overlay?.classList.toggle('visible');
+  });
+  overlay?.addEventListener('click', () => {
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('visible');
+  });
+}
+
 function withLayout(renderContent: (container: HTMLElement) => void) {
   return () => {
     if (!state.user) {
@@ -55,12 +70,18 @@ function withLayout(renderContent: (container: HTMLElement) => void) {
 
     root.innerHTML = `
       <div class="app-layout">
-        <div id="sidebar-container"></div>
+        <div id="sidebar-container">
+          <div class="hamburger">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="sidebar-overlay"></div>
+        </div>
         <main id="main-content"></main>
       </div>
     `;
 
     renderSidebar(document.getElementById('sidebar-container')!);
     renderContent(document.getElementById('main-content')!);
+    setupMobileMenu();
   };
 }
