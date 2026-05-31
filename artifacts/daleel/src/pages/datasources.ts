@@ -40,11 +40,11 @@ export function renderDataSources(container: HTMLElement) {
           <div style="display: flex; flex-direction: column; gap: 16px;">
             <div>
               <label style="display: block; margin-bottom: 8px;">اسم المصدر</label>
-              <input type="text" class="input" placeholder="مثال: نظام الأرشيف">
+              <input type="text" id="new-source-name" class="input" placeholder="مثال: نظام الأرشيف">
             </div>
             <div>
               <label style="display: block; margin-bottom: 8px;">نوع الربط</label>
-              <select class="input">
+              <select id="new-source-type" class="input">
                 <option>API REST</option>
                 <option>قاعدة بيانات (Database)</option>
                 <option>ملف (CSV/Excel)</option>
@@ -52,13 +52,25 @@ export function renderDataSources(container: HTMLElement) {
             </div>
             <div>
               <label style="display: block; margin-bottom: 8px;">رابط الـ API / سلسلة الاتصال</label>
-              <input type="text" class="input" placeholder="https://api.example.gov.sa/v1/..." style="direction: ltr;">
+              <input type="text" id="new-source-conn" class="input" placeholder="https://api.example.gov.sa/v1/..." style="direction: ltr;">
             </div>
             <button class="btn btn-secondary" id="btn-test-conn" style="width: 100%;">اختبار الاتصال</button>
           </div>
         `,
         () => {
+          const name = (document.getElementById('new-source-name') as HTMLInputElement)?.value?.trim();
+          const type = (document.getElementById('new-source-type') as HTMLSelectElement)?.value;
+          if (!name) { showToast('يرجى إدخال اسم المصدر', 'error'); return; }
+          sources.unshift({
+            name,
+            type,
+            records: '—',
+            lastUpdate: 'لم يتم المزامنة بعد',
+            status: 'غير متصل',
+            health: 0,
+          });
           showToast('تمت إضافة المصدر بنجاح', 'success');
+          render();
         }
       );
 
