@@ -58,20 +58,13 @@ export function renderExport(container: HTMLElement) {
           <h2 style="text-align: center; margin-bottom: 24px; color: var(--color-primary);">تقرير ملخص الاستعلامات</h2>
           <p style="text-align: center; color: var(--color-muted); margin-bottom: 32px;">الفترة: آخر ٧ أيام</p>
           
-          <table style="background: white; border: 1px solid var(--color-border);">
-            <thead>
-              <tr style="background: var(--color-background);">
-                <th style="padding: 8px; border-bottom: 1px solid var(--color-border);">الإدارة</th>
-                <th style="padding: 8px; border-bottom: 1px solid var(--color-border);">عدد الاستعلامات</th>
-                <th style="padding: 8px; border-bottom: 1px solid var(--color-border);">النسبة</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">الترخيص</td><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">٤٥٠</td><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">٤٥٪</td></tr>
-              <tr><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">الموارد البشرية</td><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">٣٠٠</td><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">٣٠٪</td></tr>
-              <tr><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">الشؤون المالية</td><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">٢٥٠</td><td style="padding: 8px; border-bottom: 1px solid var(--color-border);">٢٥٪</td></tr>
-            </tbody>
-          </table>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px;color:var(--color-muted);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            <p style="font-weight:600;color:var(--color-text);">لا توجد بيانات للمعاينة</p>
+            <p style="font-size:13px;">اختر نوع التقرير والفترة ثم اضغط تصدير</p>
+          </div>
         </div>
       </div>
     </div>

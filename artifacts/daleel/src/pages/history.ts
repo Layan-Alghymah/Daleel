@@ -11,16 +11,10 @@ const questions = [
 const users = ['أحمد محمد', 'سارة خالد', 'فهد عبدالله', 'نورة سعد', 'الإدارة العليا'];
 const sources = ['نظام المعاملات', 'نظام الموارد البشرية', 'نظام الرخص'];
 
-const allHistory = Array.from({ length: 30 }).map((_, i) => ({
-  id: 1000 + i,
-  question: questions[i % questions.length],
-  user: users[i % users.length],
-  date: '٢٠٢٦/٠٥/' + String((i % 28) + 1).padStart(2, '0'),
-  source: sources[i % sources.length],
-  execTime: (Math.random() * 2 + 0.4).toFixed(1) + ' ث',
-  status: i % 7 === 0 ? 'فشل' : 'ناجح',
-  confidence: Math.floor(Math.random() * 15 + 85) + '٪'
-}));
+const allHistory: Array<{
+  id: number; question: string; user: string; date: string;
+  source: string; execTime: string; status: string; confidence: string;
+}> = [];
 
 let currentPage = 1;
 const pageSize = 10;

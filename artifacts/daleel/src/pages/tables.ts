@@ -1,12 +1,10 @@
-import { mockData } from '../data';
-
 export function renderTables(container: HTMLElement) {
   container.innerHTML = `
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
       <h1>الجداول والبيانات التفصيلية</h1>
       <div style="display: flex; gap: 16px;">
-        <input type="text" id="table-search" class="input" placeholder="بحث في المعاملات..." style="width: 300px;">
-        <button class="btn btn-secondary">تصدير 📥</button>
+        <input type="text" id="table-search" class="input" placeholder="بحث في المعاملات..." style="width: 300px;" disabled>
+        <button class="btn btn-secondary" disabled>تصدير</button>
       </div>
     </div>
 
@@ -14,76 +12,39 @@ export function renderTables(container: HTMLElement) {
       <table id="data-table">
         <thead>
           <tr>
-            <th style="cursor: pointer;">رقم المعاملة ↕</th>
-            <th style="cursor: pointer;">الإدارة ↕</th>
-            <th style="cursor: pointer;">الحالة ↕</th>
-            <th style="cursor: pointer;">التاريخ ↕</th>
+            <th>رقم المعاملة</th>
+            <th>الإدارة</th>
+            <th>الحالة</th>
+            <th>التاريخ</th>
             <th>الإجراءات</th>
           </tr>
         </thead>
         <tbody id="table-body">
-          <!-- Populated by JS -->
         </tbody>
       </table>
-      
+
       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--color-border);">
-        <span style="color: var(--color-muted);" id="table-info">عرض ١ إلى ١٠ من ٥٠</span>
+        <span style="color: var(--color-muted);" id="table-info"></span>
         <div style="display: flex; gap: 8px;">
-          <button class="btn btn-secondary" id="btn-prev">السابق</button>
-          <button class="btn btn-secondary" id="btn-next">التالي</button>
+          <button class="btn btn-secondary" id="btn-prev" disabled>السابق</button>
+          <button class="btn btn-secondary" id="btn-next" disabled>التالي</button>
         </div>
       </div>
     </div>
   `;
 
-  let currentPage = 1;
-  const itemsPerPage = 10;
-  let currentData = [...mockData.transactions];
-
-  const renderRows = () => {
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const pageData = currentData.slice(start, end);
-    
-    const tbody = document.getElementById('table-body')!;
-    tbody.innerHTML = pageData.map(row => {
-      let badgeClass = 'badge-blue';
-      if (row.status === 'مكتمل') badgeClass = 'badge-green';
-      if (row.status === 'مرفوض') badgeClass = 'badge-orange'; // Should be danger but using orange for now
-      
-      return `
-        <tr>
-          <td style="font-weight: 500;">${row.id}</td>
-          <td>${row.department}</td>
-          <td><span class="badge ${badgeClass}">${row.status}</span></td>
-          <td>${row.date}</td>
-          <td><button class="btn btn-secondary" style="padding: 4px 8px; font-size: 12px;">عرض</button></td>
-        </tr>
-      `;
-    }).join('');
-
-    const info = document.getElementById('table-info')!;
-    info.innerText = `عرض ${start + 1} إلى ${Math.min(end, currentData.length)} من ${currentData.length}`;
-  };
-
-  renderRows();
-
-  document.getElementById('table-search')?.addEventListener('input', (e) => {
-    const term = (e.target as HTMLInputElement).value.toLowerCase();
-    currentData = mockData.transactions.filter(t => 
-      t.id.toLowerCase().includes(term) || 
-      t.department.toLowerCase().includes(term) ||
-      t.status.toLowerCase().includes(term)
-    );
-    currentPage = 1;
-    renderRows();
-  });
-
-  document.getElementById('btn-prev')?.addEventListener('click', () => {
-    if (currentPage > 1) { currentPage--; renderRows(); }
-  });
-
-  document.getElementById('btn-next')?.addEventListener('click', () => {
-    if (currentPage * itemsPerPage < currentData.length) { currentPage++; renderRows(); }
-  });
+  const tbody = document.getElementById('table-body')!;
+  tbody.innerHTML = `
+    <tr>
+      <td colspan="5">
+        <div class="empty-state" style="padding: 48px 0;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:12px;">
+            <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/>
+          </svg>
+          <p style="font-weight:600;margin-bottom:6px;">لا توجد بيانات</p>
+          <p style="font-size:13px;color:var(--color-muted);">ستظهر البيانات هنا بعد ربط المصادر من API</p>
+        </div>
+      </td>
+    </tr>
+  `;
 }
