@@ -2,6 +2,7 @@ import { initAuth, state, hasPermission } from './state';
 import { handleRoute, registerRoute } from './router';
 import { showToast } from './components/toast';
 
+import { renderLanding } from './pages/landing';
 import { renderLogin } from './pages/login';
 import { renderDashboard } from './pages/dashboard';
 import { renderChat } from './pages/chat';
@@ -17,6 +18,14 @@ import { renderSidebar } from './components/sidebar';
 
 export function initApp() {
   initAuth();
+
+  // Public routes (no auth required)
+  registerRoute('#', () => {
+    const root = document.getElementById('root');
+    if (!root) return;
+    if (state.user) { window.location.hash = '#dashboard'; return; }
+    renderLanding(root);
+  });
 
   registerRoute('#login', () => {
     const root = document.getElementById('root');
@@ -51,7 +60,9 @@ export function initApp() {
     renderPermissions(container);
   }));
 
-  if (!state.user && window.location.hash !== '#login') {
+  const hash = window.location.hash;
+  const publicRoutes = ['', '#', '#login'];
+  if (!state.user && !publicRoutes.includes(hash)) {
     window.location.hash = '#login';
   } else {
     handleRoute();

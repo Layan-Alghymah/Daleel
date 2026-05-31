@@ -5,7 +5,7 @@ export function registerRoute(path: string, renderFn: () => void) {
 }
 
 export function handleRoute() {
-  const hash = window.location.hash || '#dashboard';
+  const hash = window.location.hash || '#';
   const renderFn = routes[hash];
   
   const root = document.getElementById('root');
