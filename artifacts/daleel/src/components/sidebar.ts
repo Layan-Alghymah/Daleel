@@ -8,7 +8,6 @@ export function renderSidebar(container: HTMLElement) {
   const leaderMain = [
     navItem('dashboard', 'لوحة القيادة', iconGrid()),
     navItem('chat', 'المحادثة الذكية', iconChat()),
-    navItem('suggestions', 'اقتراحات الأسئلة', iconBulb()),
   ];
   const leaderData = [
     navItem('history', 'سجل جميع الاستعلامات', iconClock()),
@@ -25,7 +24,6 @@ export function renderSidebar(container: HTMLElement) {
   const managerMain = [
     navItem('dashboard', 'لوحة العمليات', iconGrid()),
     navItem('chat', 'المحادثة الذكية', iconChat()),
-    navItem('suggestions', 'اقتراحات الأسئلة', iconBulb()),
   ];
   const managerData = [
     navItem('history', 'سجل الاستعلامات', iconClock()),
@@ -41,7 +39,6 @@ export function renderSidebar(container: HTMLElement) {
   const analystMain = [
     navItem('dashboard', 'مساحتي', iconGrid()),
     navItem('chat', 'المحادثة الذكية', iconChat()),
-    navItem('suggestions', 'اقتراحات أسئلة', iconBulb()),
   ];
   const analystTools = [
     navItem('history', 'استعلاماتي', iconClock()),
